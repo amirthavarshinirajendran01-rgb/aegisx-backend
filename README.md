@@ -1,4 +1,4 @@
-🛡️ AegisX — A Local-First Privacy Firewall for AI & Web Browsing
+#🛡️ AegisX — A Local-First Privacy Firewall for AI & Web Browsing
 Hey there! 👋 I am a 1st-Year Engineering Student (Semester 1). I built AegisX to solve a real problem I noticed on campus: people accidentally leaking confidential code, passwords, and personal details into ChatGPT and web forms.
 
 Live Web Platform License: MIT Core Engine: C Backend: FastAPI Compliance: DPDP Act 2023
@@ -67,20 +67,19 @@ Backend API: Python 3, FastAPI, Asynchronous Uvicorn, Ctypes
 Browser Extension: Google Chrome Extensions (Manifest V3) 
 
 🏃 Running the Backend Locally
-# 1. Clone this repository
+1. Clone this repository
 git clone https://github.com/YOUR_USERNAME/aegisx-backend.git
 cd aegisx-backend
 
-# 2. Install Python requirements
+ 2. Install Python requirements
 pip install -r requirements.txt
 
-# 3. Run the API server
+3. Run the API server
 python main.py
-# Server runs at: http://localhost:8000
-# Interactive API Docs (Swagger UI): http://localhost:8000/docs
-🌟 What I Learned Building This
+Server runs at: http://localhost:8000
+Interactive API Docs (Swagger UI): http://localhost:8000/docs 
 
-Building this project taught me:
+🌟 What I Learned Building This
 
 How dihedral group abstract algebra applies to real-world Indian cybersecurity (Verhoeff checksum).
 How to interface low-level C code with asynchronous Python APIs using ctypes.
