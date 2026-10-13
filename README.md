@@ -1,92 +1,117 @@
-#🛡️ AegisX — A Local-First Privacy Firewall for AI & Web Browsing
-Hey there! 👋 I am a 1st-Year Engineering Student (Semester 1). I built AegisX to solve a real problem I noticed on campus: people accidentally leaking confidential code, passwords, and personal details into ChatGPT and web forms.
+# 🛡️ AegisX
 
-Live Web Platform License: MIT Core Engine: C Backend: FastAPI Compliance: DPDP Act 2023
+### Local-First Privacy Firewall for Generative AI, Web & Media
+> Built by a 1st-Year Engineering Student (Semester 1) to solve real campus privacy leaks before data leaves the laptop.
 
-🌐 Try the Live Platform
-You can test the interactive privacy engine directly in your browser without installing anything:
-👉 https://aegisxassi.lovable.app/
+[![Live Demo](https://img.shields.io/badge/Live%20Platform-aegisxassi.lovable.app-10B981?style=for-the-badge&logo=firefox)](https://aegisxassi.lovable.app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Core: Pure C](https://img.shields.io/badge/Core-Pure%20C%20(D5%20Math)-A855F7?style=for-the-badge)](c_engine/aegis_core.c)
+[![Backend: FastAPI](https://img.shields.io/badge/Backend-FastAPI-06B6D4?style=for-the-badge)](main.py)
+[![Compliance](https://img.shields.io/badge/Compliance-DPDP%20Act%202023-amber?style=for-the-badge)](https://www.meity.gov.in/)
 
-👨‍💻 About This Project (A First-Year Student's Initiative)
-Just three weeks into my first year of college, I noticed something alarming: everyone around me—classmates, developers, and friends—was constantly pressing Ctrl + V into ChatGPT to debug their work or write essays.
+---
 
-Most people don't realize that in 2023, Samsung engineers accidentally leaked secret chip designs to ChatGPT in just 20 days because of the exact same habit. Research shows that 13% of all prompts sent to GenAI contain confidential credentials or PII. Worse, studies from Princeton and UC Davis revealed that thousands of websites secretly record your keystrokes on forms before you even click "Submit."
+## ⚡ Quick Pitch: What is AegisX?
 
-Existing global tools (like Microsoft Presidio) are built for the US. They flag random 12-digit numbers as Aadhaar cards, use dumb [REDACTED] boxes that break AI reasoning, and ignore India's new DPDP Act 2023.
+When you press `Ctrl + V` into ChatGPT or a website, **your data is already compromised**.
+- In 2023, Samsung engineers leaked trade secrets to ChatGPT in under 20 days.
+- 13% of all prompts sent to GenAI leak PII or API credentials.
+- Websites silently record your keystrokes on forms before you even hit "Submit."
+- Photos uploaded to social media are scraped by AI face-swap bots.
 
-I know I can't magically solve all cybersecurity overnight. But I wanted to build something that stops the most critical 10% to 15% vulnerability window right at the keyboard before data ever leaves the laptop.
+**AegisX intercepts and sanitizes your data right inside your browser RAM—before a single byte touches the internet.**
 
-🤖 Built via Human-AI Pair Programming
-As a first-year student learning C programming in class this semester, I wanted to push myself beyond basic classroom assignments.
+---
 
-I built AegisX through Human-AI Collaboration:
+## ⚔️ The 3 Core Defense Pillars
 
-My Role (Systems Architect & Product Lead): I designed the privacy architecture, chose the focus on India's DPDP Act, researched the mathematical Verhoeff dihedral group algorithm, defined the regex patterns for Indian identifiers, and directed the entire product.
-AI Agents (Developer Copilots): I leveraged modern AI developer tools (Lovable and Antigravity) as my pair-programmers to help scaffold the React UI components, write boilerplate endpoints, and accelerate the build.
-🚀 Key Features
-1. Smart Dummy Token Swapping (Context-Preserving)
-Normal privacy tools cross out words with [REDACTED]. That confuses ChatGPT and makes it reply with broken answers. AegisX replaces sensitive secrets with realistic fake details (Rahul -> Alex, real AWS key -> fake key). ChatGPT understands the question and gives a great answer, and AegisX lets you restore your real details on-screen locally!
+| Pillar | How it Works | Key Tech |
+| :--- | :--- | :--- |
+| **📝 Text & Prompt Shield** | Replaces real secrets with synthetic dummy tokens (`Rahul` $\rightarrow$ `Alex`). ChatGPT understands context; AegisX restores the real data locally on screen. | Context-Preserving Swapping (CPEP) |
+| **🖼️ Image Armor** | Strips hidden GPS/camera metadata and injects imperceptible micro-noise into image pixels to disrupt deepfake facial-landmark detectors. | 100% Client-Side HTML5 Canvas |
+| **🌐 Web & Wiretap Auditor** | Scans websites using instant traffic lights (🟢/🟡/🔴) to flag keystroke-recording scripts and cookie dark patterns. | Browser DOM Interceptor |
 
-2. India-First Aadhaar Validation (Pure C)
-Instead of blindly flagging any random 12-digit number as an Aadhaar card, we implemented the actual mathematical Verhoeff checksum algorithm (based on the dihedral group D5 symmetries of a regular pentagon). It checks valid Aadhaar numbers with zero false alarms, catching 100% of single-digit typos.
+---
 
-3. DPDP Act 2023 Legal Suite
-Section 12 Legal Notice Generator: Under Section 12 of India’s DPDP Act 2023, citizens have the legal "Right to Erasure." AegisX includes a 1-click button that generates a formal legal email addressed to a company's Data Protection Officer (DPO) demanding personal data deletion.
-Section 6 Consent Decoder: Translates long 5,000-word terms of service into simple 5-bullet summaries in English, Hindi, Tamil, and Telugu.
-4. Perimeter Website Auditor (Traffic Lights)
-No confusing scores. Just simple, honest traffic lights:
+## 🧠 Why Not Traditional Tools?
 
-🟢 SAFE: Valid HTTPS, modern security headers, and clean tracking baseline.
-🟡 MODERATE: Watch out! The site uses tricky cookie pop-ups that hide the "Reject" button.
-🔴 HIGH RISK: Danger! Background scripts detected that can record what you type before you click submit.
-🏗️ System Architecture
-AEGISX (On Your Laptop)
+| Problem | Traditional Tools (e.g. Presidio) | AegisX Engine |
+| :--- | :--- | :--- |
+| **AI Reasoning** | Uses `[REDACTED]` boxes that break LLM grammar and logic | **Synthetic Token Swapping** preserves full context |
+| **Indian IDs** | Flags any random 12-digit number as an Aadhaar card | **Verhoeff Algorithm in Pure C** (Dihedral Group $D_5$) = 0% false alarms |
+| **Privacy Irony** | Many tools upload text to *another cloud AI* to scan it | **100% Local-First**: zero external cloud inspection |
+| **Media Safety** | Ignores photos completely | **Client-Side EXIF Wiper + Anti-AI Cloak** |
+| **Legal Recourse** | Generic US/EU policies | **DPDP Act 2023 (Sec 12) & IT Rules (Rule 3(2)(b))** automated takedowns |
 
-Detects real Aadhaar/PAN values using Verhoeff C validation.
+---
 
-Replaces real sensitive values with realistic fake details.
+## 🔒 The Zero-Retention Rule 
+         ┌──────────────────────┐
+         │    USER INPUT         │
+         │ Prompts • Images      │
+         │ Documents             │
+         └──────────┬───────────┘
+                    ▼
+    ╔════════════════════════════════╗
+    ║       AEGISX FIREWALL          ║
+    ║                                ║
+    ║  01  Identity Checksum Core    ║
+    ║  02  Image & Metadata Sanitizer║
+    ║  03  Synthetic Token Engine    ║
+    ╚════════════════╤═══════════════╝
+                     │
+                     ▼
+         ┌──────────────────────┐
+         │   SANITIZED OUTPUT   │
+         │ Synthetic Data Only  │
+         └──────────┬───────────┘
+                    ▼
+         ┌──────────────────────┐
+         │   PUBLIC LLMs / API  │
+         └──────────────────────┘
 
-Temporarily remembers the original values locally.
+    
+> **Zero Cloud Leaks:** Your raw prompts and photos never touch our backend, databases, or external AI. Everything evaporates when your browser tab closes.
 
-↓ Sends ONLY Safe Fake Data
+---
 
-[ ChatGPT / Web Server ]
+## 🛠️ The Tech Stack
 
-↓ Receives Reply
-AEGISX restores the original values locally before displaying the result.
+- **Frontend:** React, Tailwind CSS, Lucide Icons, Vite ([Live App](https://aegisxassi.lovable.app/))
+- **Core Math Engine:** Pure C (`aegis_core.c`) — Dihedral Group $D_5$ permutations
+- **Backend API:** Python 3, FastAPI, Asynchronous Uvicorn, `ctypes` bridge
+- **Media Cloak:** HTML5 Canvas, In-Memory Pixel Perturbations (`image_armor.js`)
+- **Browser Security:** Google Chrome Extensions (Manifest V3)
 
-🔒 Zero-Retention & Zero-Cloud-Leak Guarantee
-AegisX adheres to a strict Zero-Knowledge, Local-First architecture:
-- Zero Third-Party AI Inspection: Unlike other tools that send your text to an external cloud AI to scan for secrets (leaking your data in the process), AegisX does 100% of its detection locally inside the browser sandbox and private RAM.
-- Zero Database Logging: Zero prompts or PII tokens are ever saved to disk, databases, or external server logs. All processing occurs ephemerally in RAM and is permanently cleared after request termination. 
+---
 
-🛠️ Tech Stack
-Frontend Platform: React, Tailwind CSS, Lucide Icons, Vite
-Low-Level Core: Pure C (aegis_core.c), Dihedral Group D5 Math
-Backend API: Python 3, FastAPI, Asynchronous Uvicorn, Ctypes 
-Browser Extension: Google Chrome Extensions (Manifest V3) 
+## 💻 Running the Backend Locally
 
-🏃 Running the Backend Locally
-1. Clone this repository
+```bash
+# 1. Clone repo
 git clone https://github.com/YOUR_USERNAME/aegisx-backend.git
 cd aegisx-backend
 
- 2. Install Python requirements
+# 2. Install dependencies
 pip install -r requirements.txt
 
-3. Run the API server
+# 3. Run FastAPI server
 python main.py
-Server runs at: http://localhost:8000
-Interactive API Docs (Swagger UI): http://localhost:8000/docs 
+# 🚀 API running at: http://localhost:8000
+# 📖 Swagger docs at: http://localhost:8000/docs
+---
 
-🌟 What I Learned Building This
+## 🎓 Behind the Build
 
-How dihedral group abstract algebra applies to real-world Indian cybersecurity (Verhoeff checksum).
-How to interface low-level C code with asynchronous Python APIs using ctypes.
-How to structure a modern client-side React frontend with stateful token unmasking.
-How India's DPDP Act 2023 creates real legal obligations for tech companies.
-Why local-first privacy architectures must prevent raw data from touching third-party cloud models.
+> *"In 2023, senior engineers at Samsung made global headlines when they accidentally leaked proprietary semiconductor source code to ChatGPT in under three weeks. If world-class engineers at a tech giant can fall into the habit of careless copy-pasting, everyday developers and students definitely will.*
+> 
+> *Just three weeks into my first year of B.Tech in Information Technology, I watched classmates and peers routinely paste confidential code, passwords, and personal details into AI prompts without thinking twice. At the same time, the rapid rise of open-source deepfake bots scraping social media photos made it obvious that everyday privacy is breaking right at the user's keyboard.*
+> 
+> *I knew I couldn't solve all of cybersecurity overnight as a first-year student. But rather than building another generic classroom form, I wanted to build a practical, local-first shield that stops data leaks before they happen.*
+> 
+> *I acted as the Systems Architect—identifying the threat vectors, choosing the Verhoeff group theory algorithm in C, mapping India's DPDP Act and IT Rules, and directing the entire user flow. I collaborated with modern agentic AI developer tools as pair-programming copilots to scaffold the components and bring this vision to life in month one.*
+> 
+> *AegisX is proof that with the right problem, ethical curiosity, and modern engineering tools, even a beginner can build software that stands up for user dignity."*
 
 📜 License
-
-Distributed under the MIT License. 
+Distributed under the MIT License.
